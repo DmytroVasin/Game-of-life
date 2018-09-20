@@ -2,11 +2,11 @@ class Cell
   attr_accessor :x, :y, :alive, :next_state
 
   def initialize(x, y, is_alive = nil)
-    @alive = if is_alive.nil?
-      [true, false].sample
-    else
-      is_alive
-    end
+    @alive  = if is_alive.nil?
+                [true, false].sample
+              else
+                is_alive
+              end
 
     @x = x
     @y = y
@@ -45,7 +45,7 @@ class Grid
     alive_cells = 0
 
     north_west,  north, north_east,
-       west,       x,      east,
+       west,       _,      east,
     south_west,  south, south_east =
 
     [
@@ -113,7 +113,7 @@ class Game
       end
 
       # Fourth rule: => Reproduction
-      if cell.is_dead? && alive_siblings_count === 3
+      if cell.is_dead? && alive_siblings_count == 3
         cell.should_live!
       end
     end

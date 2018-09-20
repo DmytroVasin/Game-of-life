@@ -1,7 +1,8 @@
 # https://github.com/shanko/1010/blob/master/game_1010.rb
-include Gosu
 
 class GameWindow < Gosu::Window
+  include Gosu
+
   BORDER = 1
   CELL_SIZE = 30
 
